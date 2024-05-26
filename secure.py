@@ -1,5 +1,4 @@
-from flask import Flask, request, render_template_string, redirect, url_for
-from markupsafe import escape
+from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
 
@@ -17,10 +16,7 @@ def home():
 def login():
     username = request.args.get('username')
     password = request.args.get('password')
-      
-    username = escape(username)
-    password = escape(password)
-
+    
     # Vulnerable SQL query simulation
     query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
     
