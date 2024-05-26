@@ -18,6 +18,10 @@ def login():
     # Extracting username and password from URL parameters
     username = request.args.get('username')
     password = request.args.get('password')
+
+    # Sanitizing input to prevent injection attacks
+    username = escape(username)
+    password = escape(password)
     
     # Vulnerable SQL query simulation (Note: This is not actually running a SQL query, just simulating)
     query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
